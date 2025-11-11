@@ -4,34 +4,14 @@ fn main() {
 }
 
 fn palindrome(s: &str) -> String {
-
+    let rev = str_reverse(s); // Get reversed string
+    if s == rev { // Check if input string matches reversed string
+        return String::from("Yes"); // Palindrome
+    } else {
+        return String::from("No"); // Not a palindrome
+    }
 }
-
-fn str_reverse(s: &str) -> String {
-   
-}
-
-/*
-#include <stdlib.h>
-#include <string.h>
-#include <stdbool.h>
-
-#include "palindrome.h"
-
-char *str_reverse(char const *str) {
-  int len, i;
-  char *result;
-
-  len = strlen(str);
-  result = (char*) calloc(len+1, sizeof(char));
-  for (i=0; i<len; ++i) {
-    result[i] = str[len-i-1];
-  }
-  result[len] = '\0';
-
-  return result;
-}
-
+/* C version of palindrome for reference
 char *palindrome(char const *str) {
   char *rev;
   int i;
@@ -62,4 +42,36 @@ char *palindrome(char const *str) {
 
   return answer;
 }
+*/
+
+fn str_reverse(s: &str) -> String {
+  let mut result = String::new(); // Empty result string
+  for cur_char in s.chars().rev() { // Go backwards through input string, putting each char into result (finding out I could do this from my research was really cool)
+    result.push(cur_char);
+  }
+  result
+}
+
+/* C version of string reverse for reference
+#include <stdlib.h>
+#include <string.h>
+#include <stdbool.h>
+
+#include "palindrome.h"
+
+char *str_reverse(char const *str) {
+  int len, i;
+  char *result;
+
+  len = strlen(str);
+  result = (char*) calloc(len+1, sizeof(char));
+  for (i=0; i<len; ++i) {
+    result[i] = str[len-i-1];
+  }
+  result[len] = '\0';
+
+  return result;
+}
+
+
 */
