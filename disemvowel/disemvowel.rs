@@ -1,13 +1,12 @@
-//TODO: Return the input string without vowels.
+//DONE: Return the input string without vowels.
 pub fn disemvowel(s: &str) -> String {
-    let mut result = String::new();
+    let mut result = String::new(); // Create empty result string
 
-    for cur_char in s.chars() {
+    for cur_char in s.chars() { // Loop through each char in input string
         if !matches!(cur_char, 'a' | 'e' | 'i' | 'o' | 'u' | 'A' | 'E' | 'I' | 'O' | 'U') { // If char is NOT a vowel
             result.push(cur_char); // Add char to result
         }
     }
-
     result
 }
 

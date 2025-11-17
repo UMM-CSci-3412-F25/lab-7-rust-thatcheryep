@@ -32,10 +32,12 @@ fn main() {
     write_file(Path::new(&args[2]), &s_disemvowel); // Write output file
 }
 
+// Could not read
 fn read_file(path: &Path) -> String {
     fs::read_to_string(path).expect("Could not read the file")
 }
 
+// Could not write
 fn write_file(path: &Path, s: &str) {
     fs::write(path, s).expect("Unable to write file");
 }
